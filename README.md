@@ -2,11 +2,12 @@
 
 ## 数据集信息
 
-arxiv数据集地址：
+arxiv数据集地址:
 
 [https://www.kaggle.com/datasets/Cornell-University/arxiv](https://www.kaggle.com/datasets/Cornell-University/arxiv)
 
-baseline数据集地址
+baseline数据集地址: 
+
 [https://www.modelscope.cn/datasets/JimmyMa99/smartflow-arxiv-dataset/files](https://www.modelscope.cn/datasets/JimmyMa99/smartflow-arxiv-dataset/files)
 
 ## GPU环境配置
