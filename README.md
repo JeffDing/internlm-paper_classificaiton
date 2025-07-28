@@ -9,10 +9,6 @@ arxiv数据集地址：
 baseline数据集地址
 [https://www.modelscope.cn/datasets/JimmyMa99/smartflow-arxiv-dataset/files](https://www.modelscope.cn/datasets/JimmyMa99/smartflow-arxiv-dataset/files)
 
-清洗后的数据集地址：
-
-[https://www.modelscope.cn/datasets/JeffDing/ArxivData_JeffDing/files](https://www.modelscope.cn/datasets/JeffDing/ArxivData_JeffDing/files)
-
 ## GPU环境配置
 ```bash
 conda create -n swift python=3.12 -y
