@@ -13,9 +13,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 
 swift sft \
-    --model "/tmp/pretrainmodel/internlm2_5-1_8b-chat" \
+    --model "/root/data/internlm2_5-1_8b-chat" \
     --train_type lora \
-    --dataset '/tmp/code/dataset/arxiv_pretrain_16000.jsonl' \
+    --dataset '/root/data/dataset/arxiv_pretrain_26000.jsonl' \
     --torch_dtype float16 \
     --num_train_epochs 3 \
     --per_device_train_batch_size 4 \

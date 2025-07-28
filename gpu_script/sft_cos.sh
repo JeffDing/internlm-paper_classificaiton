@@ -13,9 +13,9 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 
 swift sft \
-    --model "/tmp/code/swift_output/InternLM2.5-1.8B-Lora/v0-20250728-083353/checkpoint-6000-merged" \
+    --model "/root/data/model/internlm2_1_8b_arxiv" \
     --train_type lora \
-    --dataset '/tmp/code/dataset/new_output-2048-8K.jsonl' \
+    --dataset '/root/data/dataset/new_output-2048-8K.jsonl' \
     --torch_dtype bfloat16 \
     --num_train_epochs 3 \
     --per_device_train_batch_size 4 \
@@ -31,7 +31,7 @@ swift sft \
     --save_total_limit 5 \
     --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
     --logging_steps 5 \
-    --max_length 4096 \
+    --max_length 2048 \
     --output_dir "./swift_output/InternLM2.5-1.8B-Lora-SFT-COS" \
     --dataloader_num_workers 256 \
     --attn_impl flash_attn \
