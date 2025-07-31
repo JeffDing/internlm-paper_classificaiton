@@ -179,13 +179,14 @@ def fetch_papers(num_per_category=1000):
     
     return dataset
 
-# 生成样本 (n类 × num_per_categlory 篇/类)
-print("Starting data collection for 26000 papers...")
-dataset = fetch_papers(num_per_category=1000)
+# 生成样本
+print("Starting data collection for papers...")
+dataset = fetch_papers(num_per_category=400)
 
+file_name = f"/root/data/newdataset/arxiv_classification_dataset_{len(dataset)}.json"
 # 保存为JSON文件
-with open("/tmp/code/newdataset/arxiv_classification_dataset_26000.json", "w") as f:
-    json.dump(dataset, f, indent=2,ensure_ascii=False)
+with open(file_name, "w") as f:
+    json.dump(dataset, f, indent=2, ensure_ascii=False)
 
 print(f"已成功生成 {len(dataset)} 条符合格式的样本！")
-print(f"数据集已保存到 arxiv_classification_dataset_26000.json")
+print(f"数据集已保存到 arxiv_classification_dataset_{len(dataset)}.json")
