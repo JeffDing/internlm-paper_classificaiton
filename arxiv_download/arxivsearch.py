@@ -181,9 +181,9 @@ def fetch_papers(num_per_category=1000):
 
 # 生成样本
 print("Starting data collection for papers...")
-dataset = fetch_papers(num_per_category=400)
+dataset = fetch_papers(num_per_category=2000)
 
-file_name = f"/root/data/newdataset/arxiv_classification_dataset_{len(dataset)}.json"
+file_name = f"/tmp/code/newdataset/arxiv_classification_dataset_{len(dataset)}.json"
 # 保存为JSON文件
 with open(file_name, "w") as f:
     json.dump(dataset, f, indent=2, ensure_ascii=False)

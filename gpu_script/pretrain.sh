@@ -6,35 +6,32 @@ mkdir -p $LOG_DIR
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 LOG_FILE="$LOG_DIR/internlm2_5-1_8b_lora_pretrain_${TIMESTAMP}.log"
 
-export NPROC_PER_NODE=1
+#export NPROC_PER_NODE=1
 export OMP_NUM_THREADS=1
 export CUDA_VISIBLE_DEVICES=0
 export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 
 swift sft \
-    --model "/root/data/internlm2_5-1_8b-chat" \
-    --train_type lora \
-    --dataset '/root/data/dataset/arxiv_pretrain_26000.jsonl' \
+    --model "/tmp/pretrainmodel/internlm2_5-1_8b" \
+    --train_type full \
+    --dataset '/tmp/code/dataset/arxiv_pretrain_26000.jsonl' \
     --torch_dtype float16 \
-    --num_train_epochs 3 \
+    --num_train_epochs 1 \
     --per_device_train_batch_size 4 \
     --learning_rate 5e-5 \
     --warmup_ratio 0.1 \
     --split_dataset_ratio 0 \
-    --lora_rank 128 \
-    --lora_alpha 512 \
     --target_modules all-linear \
     --gradient_accumulation_steps 2 \
     --save_steps 500 \
     --save_total_limit 3 \
     --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
     --logging_steps 5 \
-    --max_length 2048 \
-    --output_dir "./swift_output/InternLM2.5-1.8B-Lora" \
-    --dataloader_num_workers 256 \
+    --max_length 1024 \
+    --output_dir "./swift_output/InternLM2.5-1.8B-Pretrain" \
+    --dataloader_num_workers 128 \
     --attn_impl flash_attn \
-    --deepspeed zero2 \
     --model_author JeffDing \
     --model_name InternLM2.5-1.8B-Lora \
     > "$LOG_FILE" 2>&1 &

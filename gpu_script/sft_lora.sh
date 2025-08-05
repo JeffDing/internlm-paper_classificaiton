@@ -4,7 +4,7 @@ LOG_DIR="logs"
 mkdir -p $LOG_DIR
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-LOG_FILE="$LOG_DIR/internlm2_5-1_8b_lora_sft_cos_${TIMESTAMP}.log"
+LOG_FILE="$LOG_DIR/internlm2_5-1_8b_lora_sft_${TIMESTAMP}.log"
 
 #export NPROC_PER_NODE=1
 export OMP_NUM_THREADS=1
@@ -13,14 +13,13 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 
 swift sft \
-    --model "/root/data/model/internlm2_1_8b_arxiv" \
+    --model "/tmp/code/model/internlm2_1_8b_20250804" \
     --train_type lora \
-    --dataset '/root/data/dataset/new_output-2048-8K.jsonl' \
+    --dataset '/tmp/code/dataset/new_sftdata_52000_swift.jsonl' \
     --torch_dtype bfloat16 \
-    --num_train_epochs 3 \
+    --num_train_epochs 1 \
     --per_device_train_batch_size 4 \
-    --learning_rate 5e-5 \
-    --lr_scheduler_type cosine \
+    --learning_rate 1e-5 \
     --warmup_ratio 0.1 \
     --split_dataset_ratio 0 \
     --lora_rank 128 \
@@ -32,8 +31,8 @@ swift sft \
     --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
     --logging_steps 5 \
     --max_length 2048 \
-    --output_dir "./swift_output/InternLM2.5-1.8B-Lora-SFT-COS" \
-    --dataloader_num_workers 256 \
+    --output_dir "./swift_output/InternLM2.5-1.8B-Lora-SFT" \
+    --dataloader_num_workers 64 \
     --attn_impl flash_attn \
     --model_author JeffDing \
     --model_name InternLM2.5-1.8B-Lora-SFT \

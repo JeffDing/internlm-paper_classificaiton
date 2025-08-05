@@ -2,8 +2,8 @@ import json
 import random
 
 input_path = "/tmp/code/newdataset/arxiv_high.jsonl"
-output_path = "/tmp/code/newdataset/arxiv-pretrain-20000.jsonl"
-sample_size = 20003 # 你可以改成 10000 等其他数字
+output_path = "/tmp/code/newdataset/arxiv-pretrain-26000.jsonl"
+sample_size = 26004 # 你可以改成 10000 等其他数字
 
 # 先将所有数据加载到内存中（30万条可以接受）
 with open(input_path, 'r') as infile:

@@ -4,7 +4,9 @@ LOG_DIR="logs"
 mkdir -p $LOG_DIR
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-LOG_FILE="$LOG_DIR/internlm2_5-1_8b_lora_sft_cot_${TIMESTAMP}.log"
+LOG_FILE="$LOG_DIR/internlm2_5-1_8b_lora_full_${TIMESTAMP}.log"
+
+export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
 
 #export NPROC_PER_NODE=1
 export OMP_NUM_THREADS=1
@@ -13,27 +15,24 @@ export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 
 swift sft \
-    --model "/tmp/code/swift_output/InternLM2.5-1.8B-Lora/v0-20250724-061112/checkpoint-10000-merged" \
-    --train_type lora \
-    --dataset '/tmp/code/dataset/new_output-2048-8K.jsonl' \
+    --model "/tmp/pretrainmodel/internlm2_5-1_8b-chat" \
+    --train_type full \
+    --dataset '/tmp/code/dataset/new_sftdata_52000_swift.jsonl' \
     --torch_dtype bfloat16 \
-    --num_train_epochs 4 \
+    --num_train_epochs 2 \
     --per_device_train_batch_size 4 \
-    --learning_rate 5e-5 \
-    --lr_scheduler_type constant \
+    --learning_rate 1e-5 \
     --warmup_ratio 0.1 \
     --split_dataset_ratio 0 \
-    --lora_rank 128 \
-    --lora_alpha 512 \
     --target_modules all-linear \
     --gradient_accumulation_steps 2 \
     --save_steps 500 \
     --save_total_limit 5 \
     --gradient_checkpointing_kwargs '{"use_reentrant": false}' \
     --logging_steps 5 \
-    --max_length 4096 \
-    --output_dir "./swift_output/InternLM2.5-1.8B-Lora-SFT-COT" \
-    --dataloader_num_workers 256 \
+    --max_length 2048 \
+    --output_dir "./swift_output/InternLM2.5-1.8B-FULL" \
+    --dataloader_num_workers 64 \
     --attn_impl flash_attn \
     --model_author JeffDing \
     --model_name InternLM2.5-1.8B-Lora-SFT \

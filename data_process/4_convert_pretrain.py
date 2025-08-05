@@ -1,7 +1,7 @@
 import json
 
-input_path = "/tmp/code/newdataset/arxiv-pretrain-20000.jsonl"#刚刚随机抽样的数据
-output_path = "/tmp/code/dataset/arxiv_pretrain_20000.jsonl"
+input_path = "/tmp/code/newdataset/arxiv-pretrain-26000.jsonl"#刚刚随机抽样的数据
+output_path = "/tmp/code/dataset/arxiv_pretrain_26000.jsonl"
 
 count = 0
 skipped = 0
