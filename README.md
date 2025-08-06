@@ -28,6 +28,10 @@ pip install deepspeed
 ```
 
 ## 沐曦环境准备
+### 沐曦开发者社区
+[https://developer.metax-tech.com/](https://developer.metax-tech.com/)
+
+
 ### 克隆代码仓
 ```bash
 git clone https://openi.pcl.ac.cn/fresh-little-lemon/metax-swift-internlm-finetune-paper_classificaiton
