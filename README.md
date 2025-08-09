@@ -15,8 +15,9 @@ baseline数据集地址:
 conda create -n swift python=3.12 -y
 conda activate swift
 pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121
-wget https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.4.post1/flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp312-cp312-linux_x86_64.whl
-pip install flash_attn-2.7.4.post1+cu12torch2.5cxx11abiFALSE-cp312-cp312-linux_x86_64.whl --no-build-isolation
+# flash-attention从github代码仓下载，根据python、torch、cuda版本下载对应的whl安装文件
+https://github.com/Dao-AILab/flash-attention/
+pip install flash_attnXXX.whl --no-build-isolation  #前面下载下来的文件名
 
 pip install ms-swift -U
 
