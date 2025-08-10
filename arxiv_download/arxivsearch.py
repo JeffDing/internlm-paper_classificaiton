@@ -3,7 +3,10 @@ import json
 import re
 import time
 import random
+
 from tqdm import tqdm
+from pathlib import Path
+
 
 def extract_category_mapping():
     """定义类别到选项的映射"""
@@ -181,12 +184,25 @@ def fetch_papers(num_per_category=1000):
 
 # 生成样本
 print("Starting data collection for papers...")
-dataset = fetch_papers(num_per_category=2000)
+dataset = fetch_papers(num_per_category=10)
 
-file_name = f"/tmp/code/newdataset/arxiv_classification_dataset_{len(dataset)}.json"
+# 定义文件夹路径和文件名
+folder_path = Path("/root/arxiv/newdataset")
+filename = f"arxiv_classification_dataset_{len(dataset)}.json"
+
+# 拼接完整文件路径
+file_path = folder_path / filename
+
+# 确保文件夹存在
+if not folder_path.exists():
+    folder_path.mkdir(parents=True, exist_ok=True)
+    print(f"文件夹 '{folder_path}' 不存在，已自动创建。")
+else:
+    print(f"文件夹 '{folder_path}' 已存在。")
+
 # 保存为JSON文件
-with open(file_name, "w") as f:
+with open(file_path, "w") as f:
     json.dump(dataset, f, indent=2, ensure_ascii=False)
 
 print(f"已成功生成 {len(dataset)} 条符合格式的样本！")
-print(f"数据集已保存到 arxiv_classification_dataset_{len(dataset)}.json")
+print(f"数据集已保存到: {file_path}")
