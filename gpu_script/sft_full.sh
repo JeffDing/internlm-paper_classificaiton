@@ -6,7 +6,6 @@ mkdir -p $LOG_DIR
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 LOG_FILE="$LOG_DIR/internlm2_5-1_8b_full_${TIMESTAMP}.log"
 
-export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
 
 #export NPROC_PER_NODE=1
 export OMP_NUM_THREADS=1

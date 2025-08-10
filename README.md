@@ -23,6 +23,7 @@ pip install flash_attnXXX.whl --no-build-isolation  #前面下载下来的文件
 pip install ms-swift -U
 
 # 如果想源码安装的执行以下步骤，直接pip的话直接跳过
+cd /tmp/code
 git clone https://github.com/modelscope/ms-swift.git
 cd ms-swift
 pip install -e .
@@ -31,6 +32,7 @@ pip install -e .
 pip install wandb
 # 安装deepspeed
 pip install deepspeed
+cd /tmp/code
 ```
 
 ## 沐曦环境准备
@@ -54,13 +56,19 @@ pip install -r requirements.txt -i https://repos.metax-tech.com/r/maca-pypi/simp
 tar -Jxvf mxc500-deepspeed-py310-2.32.0.5-linux-x86_64.tar.xz
 cd mxc500-deepspeed-2.32.0.5/wheel/
 pip install deepspeed-0.15.1+4225e38d-py3-none-any.whl
-cd /tmp/code/
+
+# 安装ms-swift
+pip install ms-swift -U
+
+# 如果想源码安装的执行以下步骤，直接pip的话直接跳过
+cd /tmp/code
 git clone https://github.com/modelscope/ms-swift.git
 cd ms-swift
 pip install -e .
 pip install wandb
 cd /tmp/code
 ```
+
 ## NPU环境配置
 ###  创建新的conda虚拟环境(可选)
 ```bash
