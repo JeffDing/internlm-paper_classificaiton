@@ -4,7 +4,7 @@ LOG_DIR="logs"
 mkdir -p $LOG_DIR
 
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-LOG_FILE="$LOG_DIR/internlm2_5-1_8b_lora_full_${TIMESTAMP}.log"
+LOG_FILE="$LOG_DIR/internlm2_5-1_8b_full_${TIMESTAMP}.log"
 
 export TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD=1
 
@@ -35,7 +35,7 @@ swift sft \
     --dataloader_num_workers 64 \
     --attn_impl flash_attn \
     --model_author JeffDing \
-    --model_name InternLM2.5-1.8B-Lora-SFT \
+    --model_name InternLM2.5-1.8B-FULL \
     > "$LOG_FILE" 2>&1 &
 
 echo "Training started with PID $!"
