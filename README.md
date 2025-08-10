@@ -19,12 +19,17 @@ pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https
 https://github.com/Dao-AILab/flash-attention/
 pip install flash_attnXXX.whl --no-build-isolation  #前面下载下来的文件名
 
+# 安装ms-swift
 pip install ms-swift -U
 
+# 如果想源码安装的执行以下步骤，直接pip的话直接跳过
 git clone https://github.com/modelscope/ms-swift.git
 cd ms-swift
 pip install -e .
+
+# 安装wandb
 pip install wandb
+# 安装deepspeed
 pip install deepspeed
 ```
 
