@@ -69,24 +69,26 @@ pip install wandb
 cd /tmp/code
 ```
 
-## 沐曦安装Xtuner
+## 沐曦安装LMDeploy
 ```bash
-# 先安装deepspeed,然后下载xtuner安装
-tar -Jxvf mxc500-xtuner-py310-2.32.0.7-linux-x86_64.tar.xz
-cd mxc500-xtuner-2.32.0.7/xtuner/
+# lmdeploy所需的前置依赖包（addict软件包）
+pip install addict mmengine mmengine-lite fire accelerate==0.32.1 nvidia-ml-py
 
-pip install -e .[all]
-pip install accelerate==1.0.1
-pip install transformers==4.48
-pip uninstall mpi4py-mpich
-mv /opt/conda/compiler_compat/ld /opt/conda/compiler_compat/ld-bak
-pip install mpi4py
-```
-**如果提示LibGL不操作的话安装下面两个库**
-```bash
-apt install libgl1-mesa-glx libgl1-mesa-dri libglib2.0-0
-```
+# 解决LMDeploy对tranformers版本要求的Iusse：
+pip install transformers==4.48.3
 
+# 安装pybind11
+pip install pybind11==2.13.1
+
+# 下载lmdeploy，并进入目录
+git clone https://github.com/InternLM/lmdeploy.git
+cd lmdeploy
+
+# checkout对应的版本
+git checkout 832bfc45b4497e8d16e08ecfd663671e634aae40
+# 安装lmdeploy
+LMDEPLOY_TARGET_DEVICE=maca python setup.py develop
+```
 
 ## NPU环境配置
 ###  创建新的conda虚拟环境(可选)
