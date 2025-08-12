@@ -77,12 +77,16 @@ cd mxc500-xtuner-2.32.0.7/xtuner/
 
 pip install -e .[all]
 pip install accelerate==1.0.1
-pip install transformers==4.40.0
+pip install transformers==4.48
 pip uninstall mpi4py-mpich
 mv /opt/conda/compiler_compat/ld /opt/conda/compiler_compat/ld-bak
 pip install mpi4py
-
 ```
+**如果提示LibGL不操作的话安装下面两个库**
+```bash
+apt install libgl1-mesa-glx libgl1-mesa-dri libglib2.0-0
+```
+
 
 ## NPU环境配置
 ###  创建新的conda虚拟环境(可选)
