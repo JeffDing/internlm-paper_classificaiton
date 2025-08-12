@@ -87,7 +87,9 @@ cd lmdeploy
 # checkout对应的版本
 git checkout 832bfc45b4497e8d16e08ecfd663671e634aae40
 # 安装lmdeploy
-LMDEPLOY_TARGET_DEVICE=maca python setup.py develop
+pip install -r requirements_maca.txt
+
+LMDEPLOY_TARGET_DEVICE=maca pip3 install -v --no-build-isolation -e .
 ```
 
 ## NPU环境配置
