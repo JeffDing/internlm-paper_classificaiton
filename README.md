@@ -69,6 +69,21 @@ pip install wandb
 cd /tmp/code
 ```
 
+## 沐曦安装Xtuner
+```bash
+# 先安装deepspeed,然后下载xtuner安装
+tar -Jxvf mxc500-xtuner-py310-2.32.0.7-linux-x86_64.tar.xz
+cd mxc500-xtuner-2.32.0.7/xtuner/
+
+pip install -e .[all]
+pip install accelerate==1.0.1
+pip install transformers==4.40.0
+pip uninstall mpi4py-mpich
+mv /opt/conda/compiler_compat/ld /opt/conda/compiler_compat/ld-bak
+pip install mpi4py
+
+```
+
 ## NPU环境配置
 ###  创建新的conda虚拟环境(可选)
 ```bash
@@ -85,6 +100,34 @@ pip install wandb -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 ```bash
 pip install deepspeed -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 pip install transformers==4.48
+```
+
+## NPU安装Xtuner
+```bash
+# 安装torch
+pip install torch==2.3.1 torch-npu==2.3.1 torchaudio==2.3.1 torchvision
+
+# clone代码仓
+git clone https://github.moeyy.xyz/https://github.com/InternLM/lmdeploy
+git clone https://github.moeyy.xyz/https://github.com/InternLM/xtuner.git
+
+# 安装LMDeploy
+cd lmdeploy
+pip install -r requirements_ascend.txt -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+LMDEPLOY_TARGET_DEVICE=ascend pip3 install -v --no-build-isolation -e .
+
+#安装Transformers4.48.0
+pip install transformers==4.48.0
+
+#安装deepspeed及mpi4py
+pip install deepspeed==0.16.2
+conda install mpi4py
+
+#安装XTuner:
+cd ../xtuner/
+# 删除requirements/runtime.txt中的第一行bitsandbytes==0.45.0
+# 删除requirements.txt文件中的-r requirements/deepspeed.txt 这一行
+pip install -e '.[all]'
 ```
 
 
