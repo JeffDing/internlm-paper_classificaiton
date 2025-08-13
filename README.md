@@ -94,11 +94,10 @@ pip install bitsandbytes-0.45.2+maca2.32.0.5-cp310-cp310-linux_x86_64.whl
 # 先安装deepspeed,然后下载xtuner安装
 tar -Jxvf mxc500-xtuner-py310-2.32.0.7-linux-x86_64.tar.xz
 cd mxc500-xtuner-2.32.0.7/xtuner/
+pip install -e .[all]
 
 pip install timm
 pip install numpy=1.26.4
-
-pip install -e .[all]
 
 # 如果提示LibGL不操作的话安装下面两个库
 apt install libgl1-mesa-glx libgl1-mesa-dri libglib2.0-0
