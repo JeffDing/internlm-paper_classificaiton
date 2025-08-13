@@ -71,20 +71,12 @@ cd /tmp/code
 
 ## 沐曦安装LMDeploy
 ```bash
-# 解决LMDeploy对tranformers版本要求的Iusse：
-pip install transformers==4.48.3
-
-# 安装pybind11
-pip install pybind11==2.13.1
-
 # 下载lmdeploy，并进入目录
 git clone https://github.com/InternLM/lmdeploy.git
 cd lmdeploy
 
-# checkout对应的版本
-git checkout 832bfc45b4497e8d16e08ecfd663671e634aae40
 # 安装lmdeploy
-pip install -r requirements_maca.txt
+pip install -r requirements_maca.txt #安装前去掉requirements/runtime_maca.txt中与代码仓下requirements.txt库名相同的库
 
 LMDEPLOY_TARGET_DEVICE=maca pip3 install -v --no-build-isolation -e .
 ```
