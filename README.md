@@ -94,6 +94,11 @@ LMDEPLOY_TARGET_DEVICE=maca pip3 install -v --no-build-isolation -e .
 #安装环境
 pip install -r requirements_xtuner.txt -i https://repos.metax-tech.com/r/maca-pypi/simple --trusted-host repos.metax-tech.com --no-build-isolation
 
+# 安装bitsandbytes
+tar -Jxvf mxc500-bitsandbytes-py310-2.32.0.5-linux-x86_64.tar.xz
+cd mxc500-bitsandbytes-2.32.0.5/wheel
+pip install bitsandbytes-0.45.2+maca2.32.0.5-cp310-cp310-linux_x86_64.whl
+
 # 先安装deepspeed,然后下载xtuner安装
 tar -Jxvf mxc500-xtuner-py310-2.32.0.7-linux-x86_64.tar.xz
 cd mxc500-xtuner-2.32.0.7/xtuner/
