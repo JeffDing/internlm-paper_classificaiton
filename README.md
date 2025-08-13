@@ -71,9 +71,6 @@ cd /tmp/code
 
 ## 沐曦安装LMDeploy
 ```bash
-# lmdeploy所需的前置依赖包（addict软件包）
-pip install addict mmengine mmengine-lite fire accelerate==0.32.1 nvidia-ml-py
-
 # 解决LMDeploy对tranformers版本要求的Iusse：
 pip install transformers==4.48.3
 
@@ -90,6 +87,24 @@ git checkout 832bfc45b4497e8d16e08ecfd663671e634aae40
 pip install -r requirements_maca.txt
 
 LMDEPLOY_TARGET_DEVICE=maca pip3 install -v --no-build-isolation -e .
+```
+
+## 沐曦安装Xtuner
+```bash
+#安装环境
+pip install -r requirements_xtuner.txt -i https://repos.metax-tech.com/r/maca-pypi/simple --trusted-host repos.metax-tech.com --no-build-isolation
+
+# 先安装deepspeed,然后下载xtuner安装
+tar -Jxvf mxc500-xtuner-py310-2.32.0.7-linux-x86_64.tar.xz
+cd mxc500-xtuner-2.32.0.7/xtuner/
+
+pip install -e .[all]
+pip install timm
+pip install numpy=1.26.4
+pip uninistall bitsandbytes
+
+# 如果提示LibGL不操作的话安装下面两个库
+apt install libgl1-mesa-glx libgl1-mesa-dri libglib2.0-0
 ```
 
 ## NPU环境配置
