@@ -97,7 +97,7 @@ cd mxc500-xtuner-2.32.0.7/xtuner/
 pip install -e .[all]
 
 pip install timm
-pip install numpy=1.26.4
+pip install numpy==1.26.4
 
 # 如果提示LibGL不操作的话安装下面两个库
 apt install libgl1-mesa-glx libgl1-mesa-dri libglib2.0-0
