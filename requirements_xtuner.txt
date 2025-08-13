@@ -1,11 +1,6 @@
 apex==0.1+metax2.31.0.4
-dropout_layer_norm==0.1+metax2.31.0.4torch2.4
-flash_attn==2.6.3+metax2.31.0.4torch2.4
-fused_dense_lib==2.6.3+metax2.31.0.4torch2.4
-mcspconv==2.1.0+metax2.31.0.4torch2.4
-rotary_emb==0.1+metax2.31.0.4torch2.4
 torch==2.4.0+metax2.31.0.4
 torchaudio==2.4.1+metax2.31.0.4
 torchvision==0.15.1+metax2.31.0.4
 triton==3.0.0+metax2.31.0.4
-xentropy_cuda_lib==0.1+metax2.31.0.4torch2.4
+flash_attn==2.6.3+metax2.31.0.4torch2.4
