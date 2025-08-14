@@ -83,7 +83,7 @@ LMDEPLOY_TARGET_DEVICE=maca pip3 install -v --no-build-isolation -e .
 
 ## 沐曦安装Xtuner
 ```bash
-#安装环境
+# 安装环境
 pip install -r requirements_xtuner.txt -i https://repos.metax-tech.com/r/maca-pypi/simple --trusted-host repos.metax-tech.com --no-build-isolation
 
 # 安装bitsandbytes
