@@ -39,6 +39,15 @@ cd /tmp/code
 ### 沐曦开发者社区
 [https://developer.metax-tech.com/](https://developer.metax-tech.com/)
 
+### 沐曦GPU检测工具使用说明
+打开一个终端执行mx_smi.sh
+```bash
+bash mx_smi.sh
+```
+执行gpu_info.py检测输出的csv文件内容
+```bash
+python gpu_info.py
+```
 
 ### 克隆代码仓
 ```bash
@@ -66,6 +75,7 @@ git clone https://github.com/modelscope/ms-swift.git
 cd ms-swift
 pip install -e .
 pip install wandb
+
 cd /tmp/code
 ```
 
@@ -106,7 +116,7 @@ pip install wandb -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 ### 如果你想要使用deepspeed (控制显存占用,训练速度会有一定下降)
 ```bash
 pip install deepspeed -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
-pip install transformers==4.48
+pip install transformers==4.48.3
 ```
 
 ## NPU安装Xtuner
